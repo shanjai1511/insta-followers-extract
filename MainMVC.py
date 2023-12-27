@@ -1,5 +1,8 @@
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from google.auth import exceptions
+from google.auth.transport.requests import Request
+from google.auth.service_account import Credentials
+
 
 class GoogleSheetController:
     def __init__(self, credentials_path):
@@ -36,9 +39,9 @@ class ConsoleView:
 
 def main():
     try:
-        credentials_path = 'path/to/your/credentials.json'  # Replace with your credentials path
+        credentials_path = '/workspaces/insta-followers-extract/scraping-407215-2d3d1ad6fc20.json'  # Replace with your credentials path
         sheet1_url = 'https://docs.google.com/spreadsheets/d/1wLgOsqbkdAue6kV3AJZHOgp3kXOF0mvD1OYPLqpKR_M/edit#gid=0'
-        sheet2_url = 'https://docs.google.com/spreadsheets/d/1wLgOsqbkdAue6kV3AJZHOgp3kXOF0mvD1OYPLqpKR_M/edit#gid=123456789'  # Replace with actual sheet2 GID
+        sheet2_url = 'https://docs.google.com/spreadsheets/d/1wLgOsqbkdAue6kV3AJZHOgp3kXOF0mvD1OYPLqpKR_M/edit#gid=844854727'  # Replace with actual sheet2 GID
 
         sheet_controller = GoogleSheetController(credentials_path)
         data_comparer = DataComparer(sheet_controller)
